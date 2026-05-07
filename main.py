@@ -99,74 +99,54 @@ def id_cmd(message):
 # =========================================
 # PANEL GENERATOR
 # =========================================
-@bot.message_handler(commands=['panel'])
-def panel_cmd(message):
-    global anchors
+@bot.message_handler(commands=['postindex'])
+def postindex_cmd(message):
 
-    # SUBJECTS PANEL
-    subject_markup = InlineKeyboardMarkup(row_width=2)
-    for name in [
-        "NOTES", "CLINICAL GURUJI", "MIST"
-    ]:
-        if name in anchors:
-            subject_markup.add(InlineKeyboardButton(name.title(), url=anchors[name]))
+    txt = """
+<b>━━━━━━━━━━ ⚜ TSD MASTER LIBRARY ⚜ ━━━━━━━━━━</b>
 
-    bot.send_message(
-        message.chat.id,
-        "📚 <b>BROWSE CORE RESOURCES</b>",
-        reply_markup=subject_markup
-    )
+<b>📚 INSTITUTE / APPS</b>
 
-    # FACULTY PANEL
-    faculty_markup = InlineKeyboardMarkup(row_width=2)
-    for name in [
-        "DR PRIYANSH JAIN MEDICINE",
-        "SALMAN SIR'S PHARMA & MICRO",
-        "DR AZAM BIOCHEMISTRY",
-        "RADIOLOGY BY DR ZAINAB VORA"
-    ]:
-        if name in anchors:
-            faculty_markup.add(InlineKeyboardButton(name[:25], url=anchors[name]))
+• <a href='https://t.me/c/2498151175/7873'>P Ladder RR Hinglish</a>
+• <a href='https://t.me/c/2498151175/2596'>P Ladder RR English</a>
+• <a href='https://t.me/c/2498151175/11035'>P Ladder X Hinglish</a>
+• <a href='https://t.me/c/2498151175/9823'>P Ladder X English</a>
+• <a href='https://t.me/c/2498151175/2516'>Doc Tutorials</a>
+• <a href='https://t.me/c/2498151175/10'>MIST Old</a>
+• <a href='https://t.me/c/2498151175/2946'>BTR 2.0</a>
+• <a href='https://t.me/c/2498151175/12396'>Core BTR</a>
+• <a href='https://t.me/c/2498151175/2453'>Cerebellum</a>
+• <a href='https://t.me/c/2498151175/12773'>Clinical Guruji</a>
 
-    bot.send_message(
-        message.chat.id,
-        "👨‍🏫 <b>BROWSE BY FACULTY</b>",
-        reply_markup=faculty_markup
-    )
+<b>━━━━━━━━━━━━━━━━━━━━━━━━━━━━</b>
 
-    # INSTITUTE PANEL
-    inst_markup = InlineKeyboardMarkup(row_width=2)
-    for name in [
-        "CORE BTR",
-        "BTR 2.0",
-        "CEREBELLUM"
-    ]:
-        if name in anchors:
-            inst_markup.add(InlineKeyboardButton(name, url=anchors[name]))
+<b>👨‍⚕️ TEACHERS — SUBJECT WISE</b>
 
-    bot.send_message(
-        message.chat.id,
-        "🏢 <b>BROWSE BY INSTITUTE</b>",
-        reply_markup=inst_markup
-    )
+• <a href='https://t.me/c/2498151175/6866'>Dr Deepak Marwah — Medicine</a>
+• <a href='https://t.me/c/2498151175/8185'>Dr Priyansh Jain — Medicine</a>
+• <a href='https://t.me/c/2498151175/8317'>Dr Priyansh Jain — Biochemistry</a>
+• <a href='https://t.me/c/2498151175/12526'>QRP Biochemistry — Priyansh Jain</a>
+• <a href='https://t.me/c/2498151175/8394'>Dr Azam — Biochemistry</a>
+• <a href='https://t.me/c/2498151175/7516'>Dr Rajiv Dhawan — ENT</a>
+• <a href='https://t.me/c/2498151175/2421'>Dr GRG — Pharmacology</a>
+• <a href='https://t.me/c/2498151175/2454'>Dr Zainab — Radiology</a>
+• <a href='https://t.me/c/2498151175/1068'>Salman Sir — Pharma & Micro</a>
+• <a href='https://t.me/c/2498151175/6765'>Dr Deepti Bahl — OBGY DFX</a>
+• <a href='https://t.me/c/2498151175/3664'>Deepti Bahl — OBGYN DAMS</a>
+• <a href='https://t.me/c/2498151175/3529'>Dr Sudha — Ophthalmology</a>
 
-    # REVISION PANEL
-    rev_markup = InlineKeyboardMarkup(row_width=2)
-    for name in [
-        "PREP RR HINGLISH",
-        "PREP RR ENGLISH",
-        "PREP X HINGLISH",
-        "PREP X ENGLISH",
-        "QRP BIOCHEMISTRY PRIYANSH JAIN"
-    ]:
-        if name in anchors:
-            rev_markup.add(InlineKeyboardButton(name[:20], url=anchors[name]))
+<b>━━━━━━━━━━━━━━━━━━━━━━━━━━━━</b>
 
-    bot.send_message(
-        message.chat.id,
-        "🎯 <b>RAPID REVISION PROGRAMS</b>",
-        reply_markup=rev_markup
-    )
+<b>📝 GENERAL RESOURCE HUBS</b>
+
+• <a href='https://t.me/c/2498151175/6850'>Notes</a>
+
+<b>━━━━━━━━━━━━━━━━━━━━━━━━━━━━</b>
+
+<i>⚠ More Topics & Mega Subject Archives Will Be Added Continuously.</i>
+"""
+
+    bot.send_message(message.chat.id, txt, disable_web_page_preview=True)
 
 # =========================================
 # WEBHOOK
